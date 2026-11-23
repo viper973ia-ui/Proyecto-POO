@@ -96,3 +96,4 @@ if __name__ == "__main__":
     print("Últimos 5 movimientos:")
     for mov in cuenta.ultimos_movimientos():
         print(f" - {mov.tipo.capitalize()}: {mov.cantidad} €")
+    print("\n---> Valor actual de __name__:", __name__)
