@@ -7,19 +7,30 @@ class Figura(abc.ABC):
     def superficie(self):
         pass
     
-    class Circulo(Figura):
-        def __init__(self, color, radio):
-            super().__init__(color)
-            self.radio=radio
-            
-        def superficie(self):
-            return math.pi * self.radio*self.radio
+class Circulo(Figura):
+    def __init__(self, color, radio):
+        super().__init__(color)
+        self.radio=radio
+        
+    def superficie(self):
+        return math.pi * self.radio*self.radio
 
-    class Triangulo(Figura):
-        def __init__(self, color, base, altura):
-            super().__init__(color)
-            self.base=base
-            self.altura=altura
+class Triangulo(Figura):
+    def __init__(self, color, base, altura):
+        super().__init__(color)
+        self.base=base
+        self.altura=altura
+        
+    def superficie(self):
+        return self.base * self.altura / 2
+        
+def mostrar_datos(fig):
+    print (f"Color de la figura: {fig.color}")
+    print (f"Superficie de la figura: {fig.superficie()}")
+    if isinstance(fig,Circulo):
+        print(f"Radio: {fig.radio}")
+    if isinstance(fig,Triangulo):
+            print(f"Base: {fig.base}, Altura: {fig.altura}")
             
-        def superficie(self):
-            return self.base * self.altura / 2
+mostrar_datos(Circulo("naranja",5))         # Uso del POLIMORFISMO
+mostrar_datos(Triangulo("azul",10,5))
